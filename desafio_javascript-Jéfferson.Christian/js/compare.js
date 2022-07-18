@@ -48,6 +48,15 @@ function SetCarToCompare(el, carClass) {
 function ShowCompare() {
     if(carArr.length < 2) {
         alert("Precisa marcar 2 carros para apresentar a comparação");
+        console.log("entrei");
+        carArr = [];
+        disableCheckbox(checkboxes);
+        return;
+    } if (carArr.length >= 3) {
+        alert("Precisa marcar apenas 2 carros para apresentar a comparação");
+        console.log("entrei 2");
+        disableCheckbox(checkboxes);
+        carArr = [];
         return;
     } else {
         for (let i = 0; i < carArr.length; i++) {
@@ -91,7 +100,7 @@ function UpdateCompareTableRight(){
     }
 }
 
-function DisableCheckbox(el) {
+function disableCheckbox(el) {
     console.log(checkeds);
     console.log(selected);
     let ele = document.getElementsByName('selected[]');  
@@ -105,6 +114,6 @@ function DisableCheckbox(el) {
 }
 
 function HideCompare(){
-    DisableCheckbox(checkboxes);
+    disableCheckbox(checkboxes);
     document.getElementById("compare").style.display = "none"; 
 }
